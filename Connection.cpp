@@ -18,8 +18,8 @@ Connection::Connection(struct event_base* base, evutil_socket_t fd, char* mem_fi
   bufferevent_setcb(bev_, bev_read_cb, bev_write_cb, bev_event_cb, this);
   bufferevent_enable(bev_, EV_READ | EV_WRITE);
 
-  // bufferevent_set_max_single_read(bev_, 70000);
-  // bufferevent_set_max_single_write(bev_, 70000);
+  bufferevent_set_max_single_read(bev_, 70000);
+  bufferevent_set_max_single_write(bev_, 70000);
 };
 
 Connection::~Connection() {
